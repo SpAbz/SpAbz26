@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="UTF-8"/>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <title>Sportabzeichen 2026 </title>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const video = document.getElementById("meinVideo");
+    const source = document.getElementById("videoSource");
+    const titel = document.getElementById("titel");
+
+         href = window.location.href;
+         tidx =  href.indexOf("#");
+         var videoTitle = href.substr(tidx+1);
+         videoTitle = videoTitle.replace(/%20/g, " ");
+         href = href.substr(0, tidx);
+         videoPath = href.substr(href.indexOf("?")+1)
+         addAChild(videoTitle);
+         source.src = videoPath;
+         video.load();
+         video.play();
+         });
+
+    function addAChild (titel) {
+      var myH2 = document.createElement('h2');
+      var myText = document.createTextNode(titel);
+      myH2.appendChild(myText);
+      var Ausgabebereich = document.getElementById('titel');
+      Ausgabebereich.appendChild(myH2);
+    }
+</SCRIPT>
+
+  </head>
+  <body id="video">
+    <div id="titel"></div><br>
+    <video id="meinVideo" controls>
+         <source id="videoSource" src="" type="video/mp4">
+         Ihr Browser unterst&uuml;tzt dieses Videoformat nicht.
+    </video><br><br>
+    <button type="button" style="text-align:center;" onclick="history.back()"> Anderes Video</a></button>
+
+  </body>
+  </html>

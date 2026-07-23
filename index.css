@@ -1,13 +1,14 @@
 body {
   font-family: Verdana;
 /*  padding-left:20px;*/
-/*  background-color:#FFCC00; */
+  background-color:#FFCC00;
+  width: 100%;
 }
 #wrapper {
-   max-width:327px;
+   max-width:300px;
+   heigth: 100%;
    margin: 0 auto;
-   padding: 20px;
-   background-color:#FFCC00;
+   padding: 10px;
    border-style: solid;
 }
 #head {
@@ -32,19 +33,20 @@ h5 {
 #titel {
    text-align:center;
 }
+#LogoDSA img {
+   margin-left:30px;
+   margin-top:7px;
+}
 #video {
-/*   max-width:540px; */
+   max-width:540px;
    margin: 0 auto;
    padding: 5px;
-   background-color:#FFCC00;
    text-align:center;
    border-style: solid;
 }
-
 #meinVideo {
-   width:320px;
+   width:520px;
 }
-
 /* Formatierung der Buttons */
 Button {
   font-size: 0.8em;
@@ -52,12 +54,10 @@ Button {
   font-style:normal;
   background-color:#993300;
   color:#FFFFFF;
-  /*background-image:url(../img/base/bgnav2.gif);*/
-  /*background-repeat:repeat-x;*/
   border-radius: 10px;
-  height:25px;
-  width:200px;           /* bestimmt die Höhe der Buttons */
-  margin-top:2px;        /* Abstand zwischen den Buttons */
+  height:30px;           /* bestimmt die Höhe der Buttons */
+  width:170px;
+  margin-top:5px;        /* Abstand zwischen den Buttons */
   margin-bottom:2px;
   padding-top:4px;
   padding-bottom:4px;
@@ -67,5 +67,5 @@ span {
   font-family: Arial;
   font-size: 0.8em;
   font-weight:bold;
-  padding-left:20px;
+  padding-left:10px;
 }

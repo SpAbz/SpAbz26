@@ -1,43 +1,72 @@
 <!DOCTYPE html>
+<!-- app/index.html-->
 <html>
   <head>
 
     <meta charset="UTF-8"/>
     <link href="index.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
     <title>Sportabzeichen 2026 </title>
+    <link rel="apple-touch-icon" href="LogoDSA.png" />
+    <link rel="apple-touch-icon-precomposed" href="LogoDSA.gif" />
     <!--link rel="SHORTCUT ICON" href="./favicon.ico" type="image/x-icon"-->
+
+<SCRIPT LANGUAGE="JavaScript">
+function setUrl(newSrc) {
+
+    var  allVideos  = [
+    'video.html?ball-umgreifen.mp4#6.4.7.1 Ball umgreifen',
+    'video.html?Kickfangen.mp4#6.4.7.2 Kick-Fangen',
+    'video.html?Koordinations-T-Lauf.mp4#6.4.7.3 Koordinations-T-Lauf',
+    'video.html?KL-Doppelschritt.mp4#Doppelschritt',
+    'video.html?KL-Doppel-seit.mp4#Doppelschritt seitwärts',
+    'video.html?KL-Ickey.mp4#Ickey shuffle',
+    'video.html?KL-3plus1.mp4#3 Plus 1',
+    'video.html?KL-2-2-seit.mp4#2-2 seitwärts',
+    'video.html?KL-Drei.mp4#Dreifachschritt',
+    'video.html?KL-2-1-Doppel.mp4#Zwei-eins Doppel'];
+
+    urlvid = allVideos[newSrc];
+    window.location.href = urlvid;
+}
+
+</SCRIPT>
+
   </head>
 
   <body>
   <div id="wrapper">
       <div id="head">
       <h2>Sportabzeichen</h2>
-      <h4>Erweiterter Leistungskataog 2026</h4>
+      <h5>Erweiterter Leistungskataog 2026</h5>
       <h5>GRUPPE KOORDINATION (Seiten 8-18)</h5>
       </div>
-
       <h5>W&auml;hle ein Video</h5>
-
-         <a href="v1.html"><button>6.4.7.1 Ball umgreifen</button></a><br>
-         <a href="v2.html"><button>6.4.7.2 Kick-Fangen</button></a><br>
-         <a href="v3.html"><button>6.4.7.3 Koordinations-T-Lauf</button></a><br>
-
+      <div>
+         <div style="float:left;" >
+         <button onclick="setUrl(0)">6.4.7.1 Ball umgreifen</button><br>
+         <button onclick="setUrl(1)">6.4.7.2 Kick-Fangen</button><br>
+         <button onclick="setUrl(2)">6.4.7.3 T-Lauf</button><br>
+         </div>
+         <div id="LogoDSA" ><img src="LogoDSA.jpg" height="100" alt="" /></div>
+      </div><br>
       <h5>6.4.7.4 Koordinationsleiter</h5>
-         <a href="v4.html"><button>Doppelschritt</button></a>
+         <button onclick="setUrl(3)">Doppelschritt</button>
          <span>(AK 6-9/70+)</span><br>
-         <a href="v5.html"><button>Doppelschritt seitw&auml;rts</button></a>
+         <button onclick="setUrl(4)">Doppelschritt seitw&auml;rts</button>
          <span>(AK 10-11/60-69)</span><br>
-         <a href="v6.html"><button>Ickey shuffle</button></a>
+         <button onclick="setUrl(5)">Ickey shuffle</button>
          <span>(AK 12-13/50-59)</span><br>
-         <a href="v7.html"><button>3 Plus 1</button></a>
+         <button onclick="setUrl(6)">3 Plus 1</button>
          <span>(AK 14-15/40-49)</span><br>
-         <a href="v8.html"><button>2-2 seitw&auml;rts</button></a>
+         <button onclick="setUrl(7)">2-2 seitw&auml;rts</button>
          <span>(AK 16-17/35-39)</span><br>
-         <a href="v9.html"><button>Dreifachschritt</button></a>
+         <button onclick="setUrl(8)">Dreifachschritt</button>
          <span>(AK 18-19/30-34)</span><br>
-         <a href="v10.html"><button>Zwei-eins Doppel</button></a>
+         <button onclick="setUrl(9)">Zwei-eins Doppel</button>
          <span>(AK 20-24/25-29)</span><br>
   </div>
   </body>

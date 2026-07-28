@@ -21,6 +21,8 @@
          tidx =  href.indexOf("#");
          var videoTitle = href.substr(tidx+1);
          videoTitle = videoTitle.replace(/%20/g, " ");
+         videoTitle = videoTitle.replace(/%EF%BF%BD/g, "\u00e4");
+//         window.alert("titel: "+videoTitle);
          href = href.substr(0, tidx);
          videoPath = href.substr(href.indexOf("?")+1)
          addAChild(videoTitle);

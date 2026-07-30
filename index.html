@@ -10,25 +10,27 @@
 
     <title>Sportabzeichen 2026 </title>
     <link rel="apple-touch-icon" href="LogoDSA.png" />
-    <link rel="apple-touch-icon-precomposed" href="LogoDSA.gif" />
-    <!--link rel="SHORTCUT ICON" href="./favicon.ico" type="image/x-icon"-->
+    <link rel="apple-touch-icon-precomposed" href="LogoDSA-precom.gif" />
 
 <SCRIPT LANGUAGE="JavaScript">
 function setUrl(newSrc) {
 
     var  allVideos  = [
-    'video.html?Ball-umgreifen.mp4#6.4.7.1 Ball-umgreifen',
-    'video.html?Kickfangen.mp4#6.4.7.2 Kick-Fangen',
-    'video.html?Koordinations-T-Lauf.mp4#6.4.7.3 Koordinations-T-Lauf',
-    'video.html?KL-Doppelschritt.mp4#Doppelschritt',
-    'video.html?KL-Doppel-seit.mp4#Doppelschritt-seitw‰rts',
-    'video.html?KL-Ickey.mp4#Ickey-shuffle',
-    'video.html?KL-3plus1.mp4#3-Plus-1',
-    'video.html?KL-2-2-seit.mp4#2-2-seitw‰rts',
-    'video.html?KL-Drei.mp4#Dreifachschritt',
-    'video.html?KL-2-1-Doppel.mp4#Zwei-eins-Doppel'];
-
-    urlvid = allVideos[newSrc];
+    'videoUTF8.html?Ball-umgreifen.mp4#6.4.7.1 Ball-umgreifen',
+    'videoUTF8.html?Kickfangen.mp4#6.4.7.2 Kick-Fangen',
+    'videoUTF8.html?Koordinations-T-Lauf.mp4#6.4.7.3 Koordinations-T-Lauf',
+    'videoUTF8.html?KL-Doppelschritt.mp4#Doppelschritt',
+    'videoUTF8.html?KL-Doppel-seit.mp4#Doppelschritt-seitw√§rts',
+    'videoUTF8.html?KL-Ickey.mp4#Ickey-shuffle',
+    'videUTF8o.html?KL-3plus1.mp4#3-Plus-1',
+    'videoUTF8.html?KL-2-2-seit.mp4#2-2-seitw√§rts',
+    'videoUTF8.html?KL-Drei.mp4#Dreifachschritt',
+    'videoUTF8.html?KL-2-1-Doppel.mp4#Zwei-eins-Doppel'];
+    if (newSrc < 10) {
+         urlvid = allVideos[newSrc];
+    } else {
+         urlvid = "result.html";
+    }
     window.location.href = urlvid;
 }
 
@@ -67,6 +69,10 @@ function setUrl(newSrc) {
          <span>(AK 18-19/30-34)</span><br>
          <button onclick="setUrl(9)">Zwei-eins Doppel</button>
          <span>(AK 20-24/25-29)</span><br>
+
+      <div align="center" style="margin-top:10px">
+         <button onclick="setUrl(10)" style="background-color:#FF0000;text-align:center;" >Sportabzeichen</button>
+      </div>
   </div>
   </body>
 </html>

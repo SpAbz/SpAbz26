@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="UTF-8"/>
+    <!--link href="index.css" rel="stylesheet" type="text/css" /-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <title>Test Form </title>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+    document.addEventListener('submit', function () {
+    const myForm = document.localForm;
+    const ftyp = myForm.typ;
+    const falter = myForm.alter;
+    const fsex = myForm.sex;
+    const fleistung = myForm.leistung;
+    const diszip = document.querySelector("#diszip");
+    diszipIndex = ftyp.selectedIndex; // 0-9
+    sexIndex = fsex.selectedIndex;
+    diszipText = ftyp.value;
+    alter = falter.value;
+    sex = fsex.value;
+    leistung = Number(fleistung.value.replace( /,/,"." ));
+// window.alert("konv "+leistung);
+    alterIndex = getIndexAlter(alter);
+    if (diszipIndex == 3) {
+//         diszipText = diszipText + " "+getDiszipTextExt(alterIndex);
+         diszipText = "Leiter " + getDiszipTextExt(alterIndex);
+    }
+    diszip.textContent = diszipText;
+
+//        window.alert("FormData " + diszipIndex + " " + alterIndex+" "+sexIndex+" "+leistung);
+
+
+    getResult(diszipIndex, alterIndex, sexIndex, leistung);
+         event.preventDefault();
+    });
+
+    function getDiszipTextExt(alterIndex) {
+         const KoordLeiter = ['Doppelschritt', 'Doppelschritt seitwärts', 'Ickey Shuffle',
+         '3 plus 1', '2-2 seitwärts', 'Dreifachschritt', 'Zwei-eins Doppel'];
+         const dis = [0,1,2,3,4,5,6,6,5,4,3,3,2,2,1,1,0,0,0,0,0];
+         return  KoordLeiter[dis[alterIndex]];
+
+    }
+
+    function getIndexAlter(alter) {
+    const aindex = [6,10,12,14,16,18,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90];
+    k = 0;
+    while (alter >= aindex[k]) {
+         k = k+1;
+    }
+    if (k > 0) {
+      k = k-1;
+    }
+//    window.alert("index "+k+ " "+aindex[k]);
+    return k;
+}
+
+function getResult(typidx, alteridx, sexidx, leistung) {
+
+// typidx: Index Tabelle, alteridx: Index Alter, sex: Index Geschlecht, leistung: wert
+//         window.alert("getResult " + typidx + " " + alteridx+" "+sexidx+" "+leistung);
+
+
+
+const ltabs = [
+[[5,9,14,6,10,14],[12,17,23,15,20,25],[19,25,31,23,29,36], // Tabelle 1
+[24,31,38,29,37,44],[28,36,44,34,42,51],[31,39,47,37,46,54],
+[32,40,48,39,47,56],[31,39,47,38,46,55],[30,38,46,37,45,54],
+[29,37,45,36,44,53],[28,36,44,35,43,52],[27,34,42,34,41,49],
+[25,32,40,30,38,46],[22,30,37,27,35,43],[19,27,34,23,31,39],
+[16,24,31,19,27,35],[13,20,26,15,22,29],[10,16,22,12,18,24],
+[7,12,17,9,14,19],[4,8,13,5,9,13],[3,6,9,4,8,12]],
+[[3,5,7,4,7,11],[5,7,9,7,10,14],[6,8,11,9,13,16], // Tabelle 2
+[7,9,12,11,14,18],[7,10,13,12,16,19],[8,11,14,13,17,20],
+[9,12,15,15,19,22],[8,11,14,14,18,21],[7,10,13,13,17,20],
+[7,10,13,13,17,20],[6,9,12,12,16,19],[6,8,11,11,15,19],
+[5,8,10,11,14,18],[4,7,10,10,13,17],[3,6,9,9,12,15]
+[3,6,8,7,11,14],[3,5,8,6,10,13],[2,5,7,5,8,12],
+[2,4,6,4,7,10],[2,4,6,3,5,8],[2,3,5,2,4,7]],
+[[21.1,19.7,18.2,20.6,19.1,17.6],[18.7,17.3,15.8,18.3,16.8,15.3],[16.9,15.4,13.9,16.5,15.0,13.5], // Tabelle 3
+[15.5,14.1,12.6,15.1,13.6,12.1],[14.7,13.2,11.7,14.1,12.6,11.2],[14.2,12.7,11.2,13.5,12.0,10.6],
+[13.8,12.4,10.8,13.0,11.5,10.0],[14.4,12.9,11.3,13.3,11.8,10.3],[14.9,13.4,11.9,13.6,12.1,10.6],
+[15.6,14.1,12.7,14.1,12.6,11.1],[16.5,15.0,13.5,14.8,13.3,11.8],[17.5,16.0,14.6,15.6,14.1,12.7],
+[18.6,17.1,15.7,16.6,15.1,13.6],[19.7,18.2,16.8,17.7,16.2,14.7],[20.8,19.3,17.8,18.8,17.3,15.8],
+[21.8,20.3,18.9,19.9,18.4,16.9],[22.7,21.2,19.8,21.0,19.5,18.0],[23.4,21.9,20.5,22.0,20.5,19.0],
+[23.9,22.4,21.0,23.0,21.5,20.0],[24.1,22.7,21.2,23.8,22.3,20.8],[24.3,22.9,21.4,24.0,22.5,21.0]],
+[[31.9,28.5,25.1,31.9,28.5,25.1],[26.1,22.7,19.3,26.1,22.7,19.3],[29.2,25.8,22.4,29.2,25.8,22.4], // Tabelle 4
+[33.5,30.1,26.7,33.5,30.1,26.7],[33.2,29.8,26.4,33.2,29.8,26.4],[28.5,25.1,21.7,28.5,25.1,21.7],
+[41.4,38.0,34.6,41.4,38.0,34.6],[41.4,38.0,34.6,41.4,38.0,34.6],[28.5,25.1,21.7,28.5,25.1,21.7],
+[34.4,31.0,27.6,34.4,31.0,27.6],[34.8,31.4,28.0,34.8,31.4,28.0],[37.1,33.7,30.3,37.1,33.7,30.3],
+[30.2,26.8,23.4,30.2,26.8,23.4],[31.2,27.8,24.4,31.2,27.8,24.4],[26.1,22.7,19.3,26.1,22.7,19.3],
+[27.3,23.9,20.5,27.3,23.9,20.5],[32.2,28.8,25.4,32.2,28.8,25.4],[33.7,30.3,26.9,33.7,30.3,26.9],
+[36.0,32.6,29.2,36.0,32.6,29.2],[38.8,35.4,32.0,38.8,35.4,32.0],
+[40.5,37.1,33.7,40.5,37.1,33.7]]
+];
+
+
+//         window.alert("getResult " + typidx + " " + alteridx+" "+sexidx+" "+leistung);
+
+let ofs = 0;
+let result;
+const soll = Array(3);
+//         window.alert("getResult " + typidx + " " + alteridx+" "+sexidx+" "+leistung);
+
+         if (sexidx == 1) { ofs = 3; }
+//         window.alert("sexidx ofs "+sexidx+" "+ofs);
+
+         if (typidx < 4) { // Tabelle 0-3
+             for (let i = 0; i < 3; i++) {
+                soll [i] = ltabs[typidx][alteridx][i+ofs];
+//                window.alert("value soll "+i+" "+soll[i]);
+             }
+             result = ergebnis(leistung, soll, typidx)
+             setStyle(result);
+
+//                 window.alert("ergebnis "+result);
+
+         }
+
+//         window.alert("getResult " + typ + " " + alter+" "+sex+" "+leistung);
+
+}
+
+function setStyle(result) {
+const ug = document.getElementById("ug");
+const bz = document.getElementById("bz");
+const sb = document.getElementById("sb");
+const gd = document.getElementById("gd");
+         ug.style.borderstyle="none";
+         bz.style.borderstyle="none";
+         sb.style.borderstyle="none";
+         gd.style.borderstyle="none";
+
+         ug.style.backgroundColor="#FFCC00";
+         bz.style.backgroundColor="#FFCC00";
+         sb.style.backgroundColor="#FFCC00";
+         gd.style.backgroundColor="#FFCC00";
+
+switch (result) {
+    case 0:
+        ug.style.borderStyle = "solid";
+        ug.style.backgroundColor = "#FF0000";
+        break;
+    case 1:
+        bz.style.borderStyle = "solid";
+        bz.style.backgroundColor = "#00FF00";
+        break;
+    case 2:
+        sb.style.borderStyle = "solid";
+        sb.style.backgroundColor = "#00FF00";
+        break;
+    case 3:
+        gd.style.borderStyle = "solid";
+        gd.style.backgroundColor = "#00FF00";
+        break;
+}
+}
+
+
+function ergebnis(ist, soll, tidx) {
+let res = 0;
+let i;
+    if ( tidx < 2 ) {   // Anzahl
+         for (i =0; i<3; i++) {
+            if (ist >= soll[i]) { res++ }
+         }
+    } else {
+         for (i =0; i<3; i++) {  // Zeit
+ // window.alert("value soll "+ist+" "+soll[i]);
+            if (ist <= soll[i]) { res++ }
+         }
+
+    }
+
+    return res;
+}
+
+function goToHome() {
+    window.location.href = "index.html";
+}
+</SCRIPT>
+
+<style>
+body {
+  font-family: Verdana;
+  background-color:#FFCC00;
+}
+#head {
+  text-align:center;
+  margin-bottom:10px;
+}
+  #wrapper {
+   max-width:300px;
+   heigth: 100%;
+   margin: 0 auto;
+   padding: 10px;
+   text-align:center;
+}
+h2 {
+    margin-top:15px;
+    margin-bottom:0px;
+  }
+
+h4 {
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+
+h5 {
+    margin-top:0px;
+    margin-bottom:0px;
+  }
+td {
+   width:200px;
+   text-align:left;
+   line-height:30px;
+   padding:10px;
+   background-color:#FFFF00;
+   border-radius: 5px;
+   }
+td input {
+  height: 25px;
+}
+
+.in {
+   width:38px;
+}
+#sex {
+  width:45px;
+}
+img {
+    margin-left:5px;
+    margin-right:5px;
+
+    border-radius:10px;
+/*
+    background-color:#00FF00;
+    border-style:solid;
+*/
+}
+Button {
+  font-size: 0.8em;
+  font-weight:bold;
+  font-style:normal;
+  background-color:#993300;
+  color:#FFFFFF;
+  border-radius: 10px;
+  height:30px;           /* bestimmt die H&ouml;he der Buttons */
+  width:170px;
+  margin-top:5px;
+  margin-bottom:2px;
+  padding-top:4px;
+  padding-bottom:4px;
+  text-align:center;
+}
+
+</style>
+
+  </head>
+  <body id="FormTest">
+  <div id="wrapper">
+         <div id="head">
+                 <h2>Sportabzeichen</h2>
+         </div>
+      <form name="localForm">
+         <table>
+           <tr>
+           <td><label for="alter" >Alter:</label></td>
+           <td><input type="text" class="in" name="alter"  maxlength="2">&nbsp;Jahre</td>
+           </tr>
+           <tr>
+           <td><label for="typ">Disziplin:</label></td>
+           <td><select name="typ" size="1" style="height:30px;">
+             <option>Ball-umgreifen</option>
+             <option>Kickfangen</option>
+             <option>Koordinations-T-Lauf</option>
+             <option>Koordinationsleiter</option>
+           </select></td>
+           </tr>
+           <tr>
+           <td><label for="sex" >Geschlecht:</label></td>
+           <td><select name="sex" id="sex" size="1" style="height:30px;">
+             <option>W</option>
+             <option>M</option>
+           </select></td>
+           </tr>
+           <tr>
+           <td><label for="leistung" >Leistung:</label></td>
+           <td><input type="text" name="leistung" class="in" >&nbsp;Anzahl/Zeit</td>
+           </tr>
+         </table>
+         <br>
+         <!--button type="reset">Eingaben zur cksetzen</button-->
+         <button type="submit">Ergebniss Ermitteln</button>
+      </form>
+      <h2>Wertung f&uuml;r Disziplin</h2>
+      <h4 id="diszip"></h4><br>
+         <div id="dsabz" >
+         <img id="ug" src="ug.gif" height="50" width="50"  alt="" />
+         <img id="bz" src="bz.gif" height="50" width="50" alt="" />
+         <img id="sb" src="sb.gif" height="50" width="50" alt="" />
+         <img id="gd" src="gd.gif" height="50" width="50" alt="" />
+         </div>
+      <div>
+         <button onClick="parent.location='index.html'" style="background-color:#FF0000;" >Zur&uuml;ck</button>
+      </div>
+  </div>
+  </body>
+  </html>

@@ -28,6 +28,7 @@
          videoPath = href.substr(href.indexOf("?")+1)
          addAChild(videoTitle);
          source.src = videoPath;
+         window.alert("videopath "+videoPath);
          video.load();
          video.play();
          });

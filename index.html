@@ -1,79 +1,73 @@
-<!DOCTYPE html>
-<html>
-  <head>
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="UTF-8"/>
+     <link href="index.css" rel="stylesheet" type="text/css" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+     <meta name="mobile-web-app-capable" content="yes" />
+     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-    <meta charset="UTF-8"/>
-    <link href="index.css" rel="stylesheet" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+     <title>Sportabzeichen 2026 </title>
+     <link rel="SHORTCUT ICON" href="img/favicon.ico" type="image/x-icon">
+     <link rel="apple-touch-icon" href="img/LogoDSA.png" />
+     <link rel="apple-touch-icon-precomposed" href="img/LogoDSA-precom.gif" />
 
-    <title>Sportabzeichen 2026 </title>
-    <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="LogoDSA.png" />
-    <link rel="apple-touch-icon-precomposed" href="LogoDSA-precom.gif" />
-
-<SCRIPT LANGUAGE="JavaScript">
-function setUrl(newSrc) {
-
-    var  allVideos  = [
-    'video.html?Ball-umgreifen.mp4#6.4.7.1 Ball-umgreifen',
-    'video.html?Kickfangen.mp4#6.4.7.2 Kick-Fangen',
-    'video.html?Koordinations-T-Lauf.mp4#6.4.7.3 Koordinations-T-Lauf',
-    'video.html?KL-Doppelschritt.mp4#Doppelschritt',
-    'video.html?KL-Doppel-seit.mp4#Doppelschritt-seitwärts',
-    'video.html?KL3.mp4#Ickey-shuffle',
-    'video.html?KL4.mp4#3-Plus-1',
-    'video.html?KL-2-2-seit.mp4#2-2-seitwärts',
-    'video.html?KL-Drei.mp4#Dreifachschritt',
-    'video.html?KL-2-1-Doppel.mp4#Zwei-eins-Doppel'];
-    if (newSrc < 10) {
-         urlvid = allVideos[newSrc];
-    } else {
-         urlvid = "result.html";
-    }
-    window.location.href = urlvid;
-}
-
-</SCRIPT>
-
-  </head>
-
-  <body>
-  <div id="wrapper">
-      <div id="head">
-      <h2>Sportabzeichen</h2>
-      <h5>Erweiterter Leistungskataog 2026</h5>
-      <h5>GRUPPE KOORDINATION (Seiten 8-18)</h5>
+     <SCRIPT LANGUAGE="JavaScript">
+     function setUrl(newSrc) {
+     var  allVideos  = [
+     'video.html?./videos/Ball-umgreifen.mp4#6.4.7.1 Ball-umgreifen',
+     'video.html?./videos/Kickfangen.mp4#6.4.7.2 Kick-Fangen',
+     'video.html?./videos/Koordinations-T-Lauf.mp4#6.4.7.3 Koordinations-T-Lauf',
+     'video.html?./videos/KL-Doppelschritt.mp4#Doppelschritt',
+     'video.html?./videos/KL-Doppel-seit.mp4#Doppelschritt-seitwärts',
+     'video.html?./videos/KL-Ickey.mp4#Ickey-shuffle',
+     'video.html?./videos/KL-3plus1.mp4#3-Plus-1',
+     'video.html?./videos/KL-2-2-seit.mp4#2-2-seitwärts',
+     'video.html?./videos/KL-Drei.mp4#Dreifachschritt',
+     'video.html?./videos/KL-2-1-Doppel.mp4#Zwei-eins-Doppel'];
+     if (newSrc < 10) {
+       urlvid = allVideos[newSrc];
+     } else {
+       urlvid = "result.html";
+     }
+     window.location.href = urlvid;
+     }
+     </SCRIPT>
+   </head>
+   <body id="home">
+      <div id="wrapper">
+        <div id="head">
+          <h2>Sportabzeichen</h2>
+          <h5>Erweiterter Leistungskataog 2026</h5>
+          <h5>GRUPPE KOORDINATION (Seiten 8-18)</h5>
+        </div>
+        <h5>W&auml;hle ein Video</h5>
+        <div>
+          <div style="float:left;" >
+            <button onclick="setUrl(0)">6.4.7.1 Ball umgreifen</button><br>
+            <button onclick="setUrl(1)">6.4.7.2 Kick-Fangen</button><br>
+            <button onclick="setUrl(2)">6.4.7.3 T-Lauf</button><br>
+          </div>
+          <div id="LogoDSA" ><img src="img/LogoDSA.jpg" height="100" alt="" /></div>
+        </div>
+        <h5>6.4.7.4 Koordinationsleiter</h5>
+        <button onclick="setUrl(3)">Doppelschritt</button>
+        <span>(AK 6-9/70+)</span><br>
+        <button onclick="setUrl(4)">Doppelschritt seitw&auml;rts</button>
+        <span>(AK 10-11/60-69)</span><br>
+        <button onclick="setUrl(5)">Ickey shuffle</button>
+        <span>(AK 12-13/50-59)</span><br>
+        <button onclick="setUrl(6)">3 Plus 1</button>
+        <span>(AK 14-15/40-49)</span><br>
+        <button onclick="setUrl(7)">2-2 seitw&auml;rts</button>
+        <span>(AK 16-17/35-39)</span><br>
+        <button onclick="setUrl(8)">Dreifachschritt</button>
+        <span>(AK 18-19/30-34)</span><br>
+        <button onclick="setUrl(9)">Zwei-eins Doppel</button>
+        <span>(AK 20-24/25-29)</span><br>
+        <div align="center">
+          <button class="redButton" onclick="setUrl(10)">Sportabzeichen</button>
+        </div>
       </div>
-      <h5>W&auml;hle ein Video</h5>
-      <div>
-         <div style="float:left;" >
-         <button onclick="setUrl(0)">6.4.7.1 Ball umgreifen</button><br>
-         <button onclick="setUrl(1)">6.4.7.2 Kick-Fangen</button><br>
-         <button onclick="setUrl(2)">6.4.7.3 T-Lauf</button><br>
-         </div>
-         <div id="LogoDSA" ><img src="LogoDSA.jpg" height="100" alt="" /></div>
-      </div><br>
-      <h5>6.4.7.4 Koordinationsleiter</h5>
-         <button onclick="setUrl(3)">Doppelschritt</button>
-         <span>(AK 6-9/70+)</span><br>
-         <button onclick="setUrl(4)">Doppelschritt seitw&auml;rts</button>
-         <span>(AK 10-11/60-69)</span><br>
-         <button onclick="setUrl(5)">Ickey shuffle</button>
-         <span>(AK 12-13/50-59)</span><br>
-         <button onclick="setUrl(6)">3 Plus 1</button>
-         <span>(AK 14-15/40-49)</span><br>
-         <button onclick="setUrl(7)">2-2 seitw&auml;rts</button>
-         <span>(AK 16-17/35-39)</span><br>
-         <button onclick="setUrl(8)">Dreifachschritt</button>
-         <span>(AK 18-19/30-34)</span><br>
-         <button onclick="setUrl(9)">Zwei-eins Doppel</button>
-         <span>(AK 20-24/25-29)</span><br>
-
-      <div align="center" style="margin-top:10px">
-         <button onclick="setUrl(10)" style="background-color:#FF0000;text-align:center;" >Sportabzeichen</button>
-      </div>
-  </div>
-  </body>
+   </body>
 </html>

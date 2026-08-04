@@ -10,41 +10,11 @@
 
     <title>Sportabzeichen 2026 </title>
     <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon">
-
-<SCRIPT LANGUAGE="JavaScript">
-
-    document.addEventListener('DOMContentLoaded', function () {
-    const video = document.getElementById("meinVideo");
-    const source = document.getElementById("videoSource");
-    const titel = document.getElementById("titel");
-
-         href = window.location.href;
-         tidx =  href.indexOf("#");
-         var videoTitle = href.substr(tidx+1);
-         videoTitle = videoTitle.replace(/%20/g, " ");
-         videoTitle = videoTitle.replace(/%C3%A4/g, "ä");
-//         window.alert("titel: "+videoTitle);
-         href = href.substr(0, tidx);
-         videoPath = href.substr(href.indexOf("?")+1)
-         addAChild(videoTitle);
-         source.src = videoPath;
-//         window.alert("videopath "+videoPath);
-         video.load();
-         video.play();
-         });
-
-    function addAChild (titel) {
-      var myH2 = document.createElement('h2');
-      var myText = document.createTextNode(titel);
-      myH2.appendChild(myText);
-      var Ausgabebereich = document.getElementById('titel');
-      Ausgabebereich.appendChild(myH2);
-    }
-</SCRIPT>
+    <script src="js/video.js" type="text/javascript"></script>
 
   </head>
   <body id="video">
-    <div id="titel"></div><br>
+    <h2 id="title"></h2><br>
     <video id="meinVideo" controls autoplay>
          <source id="videoSource" src="" type="video/mp4">
          Ihr Browser unterst&uuml;tzt dieses Videoformat nicht.

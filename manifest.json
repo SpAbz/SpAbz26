@@ -1,0 +1,18 @@
+json
+{
+  "name": "SpAbz26",
+  "short_name": "App",
+  "icons": [
+    {
+      "src": "img/LogoDSA192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/LogoDSA512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone"
+}

@@ -45,10 +45,10 @@ document.addEventListener('submit', function () {
       event.preventDefault();
     }
 });
-/* Text Disziplin Koordinationsleiter f�r Altersstufe */
+/* Text Disziplin Koordinationsleiter für Altersstufe */
 function getDiszipTextExt(alterIndex) {
-    const KoordLeiter = ['Doppelschritt', 'Doppelschritt seitwärts', 'Ickey Shuffle',
-         '3 plus 1', '2-2 seitwärts', 'Dreifachschritt', 'Zwei-eins Doppel'];
+    const KoordLeiter = ['Doppelschritt', 'Doppelschritt seitwÃ¤rts', 'Ickey Shuffle',
+         '3 plus 1', '2-2 seitwÃ¤rts', 'Dreifachschritt', 'Zwei-eins Doppel'];
     const dis = [0,1,2,3,4,5,6,6,5,4,3,3,2,2,1,1,0,0,0,0,0];
     return  KoordLeiter[dis[alterIndex]];
 }
@@ -69,7 +69,7 @@ function getIndexAlter(alter) {
 function getResult(typidx, alteridx, sexidx, leistung) {
 /* typidx: Index Tabelle, alteridx: Index Alter, sex: Index Geschlecht, leistung: wert */
 /* Tabellendaten nach DSA, 4 Tabellen, je 21 Zeilen mit 6 spalten */
-/* weiblich+m�nlich: bronze, silber, gold */
+/* weiblich+mänlich: bronze, silber, gold */
     const ltabs = [
          [[5,9,14,6,10,14],[12,17,23,15,20,25],[19,25,31,23,29,36], // Tabelle 1
          [24,31,38,29,37,44],[28,36,44,34,42,51],[31,39,47,37,46,54],
